@@ -1,0 +1,22 @@
+{
+  "name": "lambda-s3-encrypt",
+  "version": "1.0.0",
+  "description": "S3 Upload Trigger Lambda to encrypt S3 objects with KMS",
+  "main": "src/index.ts",
+  "repository": "https://github.com/djmeph/lambda-s3-encrypt",
+  "author": "DJ Meph",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.136",
+    "@types/node": "^20.11.30",
+    "tsc": "^2.0.4",
+    "typescript": "^5.4.3"
+  },
+  "packageManager": "yarn@4.1.1",
+  "dependencies": {
+    "@aws-crypto/client-node": "^4.0.0",
+    "@aws-sdk/client-s3": "^3.540.0",
+    "@aws-sdk/lib-storage": "^3.540.0",
+    "aws-lambda": "^1.0.7"
+  }
+}

@@ -1,3 +1,12 @@
+/**
+ * This Lambda function encrypts an object in an S3 bucket using the AWS Encryption SDK for JavaScript.
+ * The function is triggered by an S3 event, which contains information about the bucket and object.
+ * The function retrieves the object from S3, encrypts it, and uploads the encrypted object back to S3.
+ * The original object is then deleted.
+ * 
+ * Environment variables:
+ * - KMS_KEY: The AWS KMS key ARN to use for encryption.
+ */
 import {
     AlgorithmSuiteIdentifier,
     CommitmentPolicy,
@@ -19,7 +28,7 @@ import {
   const awsEncryptionClient = buildClient(
     CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT
   );
-  
+
   export const handler = async (event: S3Event): Promise<void> => {
     const bucket = event.Records[0].s3.bucket.name;
     const key = decodeURIComponent(
